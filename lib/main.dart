@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:netflix_clone/screens/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
         ),
         fontFamily: GoogleFonts.ptSans().fontFamily,
       ),
+      home: const SplashScreen(),
     );
   }
 }
