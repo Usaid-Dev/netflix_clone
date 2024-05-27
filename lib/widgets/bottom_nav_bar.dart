@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_clone/screens/home_screen.dart';
+import 'package:netflix_clone/screens/more_screen.dart';
+import 'package:netflix_clone/screens/search_screen.dart';
 
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar({super.key});
@@ -30,6 +33,13 @@ class BottomNavBar extends StatelessWidget {
             labelColor: Colors.white,
             indicatorColor: Colors.transparent,
           ),
+        ),
+        body: const TabBarView(
+          children: [
+            HomeScreen(),
+            SearchScreen(),
+            MoreScreen(),
+          ],
         ),
       ),
     );

@@ -27,6 +27,8 @@ class MyApp extends StatelessWidget {
           ),
         ),
         fontFamily: GoogleFonts.ptSans().fontFamily,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple)
+            .copyWith(background: Colors.black),
       ),
       home: const SplashScreen(),
     );
