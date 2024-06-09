@@ -20,6 +20,26 @@ class _HomeScreenState extends State<HomeScreen> {
           height: 50,
           width: 120,
         ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 20.0),
+            child: InkWell(
+              onTap: () {},
+              child: const Icon(
+                Icons.search,
+                color: Colors.white,
+              ),
+            ),
+          ),
+          ClipRRect(
+            borderRadius: BorderRadiusDirectional.circular(6),
+            child: Container(
+              color: Colors.blue,
+              height: 27,
+              width: 27,
+            ),
+          )
+        ],
       ),
     );
   }
