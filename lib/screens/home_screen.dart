@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:netflix_clone/common/utils.dart';
 import 'package:netflix_clone/models/movie_model.dart';
 import 'package:netflix_clone/services/api_services.dart';
+import 'package:netflix_clone/widgets/upcoming_movie_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -54,6 +55,17 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           )
         ],
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: 220,
+              child: UpcomingMovieCard(
+                  future: upcomingFuture, headlineText: 'Upcoming Movies'),
+            )
+          ],
+        ),
       ),
     );
   }
