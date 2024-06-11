@@ -20,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     upcomingFuture = apiServices.getUpcomingMovies();
-
+    nowPlaying = apiServices.getNowPlayingMovies();
     super.initState();
   }
 
@@ -63,7 +63,12 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 220,
               child: UpcomingMovieCard(
                   future: upcomingFuture, headlineText: 'Upcoming Movies'),
-            )
+            ),
+            SizedBox(
+              height: 220,
+              child: UpcomingMovieCard(
+                  future: nowPlaying, headlineText: 'Now Playing'),
+            ),
           ],
         ),
       ),
