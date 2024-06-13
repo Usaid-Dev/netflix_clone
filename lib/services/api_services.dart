@@ -4,6 +4,7 @@ import 'dart:developer';
 import 'package:netflix_clone/common/utils.dart';
 import 'package:netflix_clone/models/movie_model.dart';
 import 'package:http/http.dart' as http;
+import 'package:netflix_clone/models/tv_series_model.dart';
 
 const baseUrl = 'https://api.themoviedb.org/3/';
 var key = '?api_key=$apiKey';
@@ -32,5 +33,17 @@ class ApiServices {
       return MovieModel.fromJson(jsonDecode(response.body));
     }
     throw Exception('failed to load now playing movies');
+  }
+
+  Future<TvSeriesModel> getTopRatedSeries() async {
+    endPoint = 'tv/1396/recommendations';
+    final url = '$baseUrl$endPoint$key';
+
+    final response = await http.get(Uri.parse(url));
+    if (response.statusCode == 200) {
+      log('success');
+      return TvSeriesModel.fromJson(jsonDecode(response.body));
+    }
+    throw Exception('failed to load top rated series');
   }
 }

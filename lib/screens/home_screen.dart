@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/common/utils.dart';
 import 'package:netflix_clone/models/movie_model.dart';
+import 'package:netflix_clone/models/tv_series_model.dart';
 import 'package:netflix_clone/services/api_services.dart';
+import 'package:netflix_clone/widgets/custom_carousel.dart';
 import 'package:netflix_clone/widgets/upcoming_movie_card.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -16,11 +18,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
   late Future<MovieModel> upcomingFuture;
   late Future<MovieModel> nowPlaying;
+  late Future<TvSeriesModel> topRatedShows;
 
   @override
   void initState() {
     upcomingFuture = apiServices.getUpcomingMovies();
     nowPlaying = apiServices.getNowPlayingMovies();
+    topRatedShows = apiServices.getTopRatedSeries();
     super.initState();
   }
 
@@ -59,10 +63,25 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            FutureBuilder<TvSeriesModel>(
+              future: topRatedShows,
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return CustomCarouselSlider(data: snapshot.data!);
+                }
+                return const SizedBox();
+              },
+            ),
+            const SizedBox(
+              height: 20,
+            ),
             SizedBox(
               height: 220,
               child: UpcomingMovieCard(
                   future: upcomingFuture, headlineText: 'Upcoming Movies'),
+            ),
+            const SizedBox(
+              height: 20,
             ),
             SizedBox(
               height: 220,
