@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:netflix_clone/common/utils.dart';
 import 'package:netflix_clone/models/movie_model.dart';
 import 'package:netflix_clone/models/tv_series_model.dart';
 import 'package:netflix_clone/screens/search_screen.dart';
@@ -34,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: kBackgoundColor,
+        backgroundColor: Colors.black,
         title: Image.asset(
           'assets/logo.png',
           height: 50,
@@ -54,18 +53,25 @@ class _HomeScreenState extends State<HomeScreen> {
               },
               child: const Icon(
                 Icons.search,
+                size: 30,
                 color: Colors.white,
               ),
             ),
           ),
           ClipRRect(
-            borderRadius: BorderRadiusDirectional.circular(6),
-            child: Container(
-              color: Colors.blue,
-              height: 27,
-              width: 27,
+            borderRadius: BorderRadius.circular(6),
+            child: InkWell(
+              onTap: () {},
+              child: Container(
+                color: Colors.blue,
+                height: 27,
+                width: 27,
+              ),
             ),
-          )
+          ),
+          const SizedBox(
+            width: 20,
+          ),
         ],
       ),
       body: SingleChildScrollView(
@@ -86,7 +92,9 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(
               height: 220,
               child: UpcomingMovieCard(
-                  future: upcomingFuture, headlineText: 'Upcoming Movies'),
+                future: nowPlaying,
+                headlineText: 'Now Playing',
+              ),
             ),
             const SizedBox(
               height: 20,
@@ -94,7 +102,9 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(
               height: 220,
               child: UpcomingMovieCard(
-                  future: nowPlaying, headlineText: 'Now Playing'),
+                future: upcomingFuture,
+                headlineText: 'Upcoming Movies',
+              ),
             ),
           ],
         ),

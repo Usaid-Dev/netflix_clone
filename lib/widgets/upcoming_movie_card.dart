@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/common/utils.dart';
 import 'package:netflix_clone/models/movie_model.dart';
+import 'package:netflix_clone/screens/movie_detailed_screen.dart';
 
 class UpcomingMovieCard extends StatelessWidget {
   final Future<MovieModel> future;
@@ -40,14 +41,14 @@ class UpcomingMovieCard extends StatelessWidget {
                             padding: const EdgeInsets.all(5.0),
                             child: InkWell(
                               onTap: () {
-                                // Navigator.push(
-                                //   context,
-                                //   MaterialPageRoute(
-                                //     builder: (context) => MovieDetailScreen(
-                                //       movieId: data[index].id,
-                                //     ),
-                                //   ),
-                                // );
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => MovieDetailScreen(
+                                      movieId: data[index].id,
+                                    ),
+                                  ),
+                                );
                               },
                               child: Container(
                                 decoration: BoxDecoration(
