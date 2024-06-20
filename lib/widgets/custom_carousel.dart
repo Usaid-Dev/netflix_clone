@@ -3,6 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/common/utils.dart';
 import 'package:netflix_clone/models/tv_series_model.dart';
+import 'package:netflix_clone/widgets/landing_card.dart';
 
 class CustomCarouselSlider extends StatelessWidget {
   const CustomCarouselSlider({
@@ -37,11 +38,9 @@ class CustomCarouselSlider extends StatelessWidget {
           var url = data.results[index].backdropPath.toString();
           return GestureDetector(
             onTap: () {},
-            child: Column(
-              children: [
-                CachedNetworkImage(imageUrl: "$imageUrl$url"),
-                Text(data.results[index].name),
-              ],
+            child: LandingCard(
+              image: CachedNetworkImageProvider("$imageUrl$url"),
+              name: data.results[index].name.toString(),
             ),
           );
         },

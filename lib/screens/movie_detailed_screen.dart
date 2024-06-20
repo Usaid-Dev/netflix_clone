@@ -105,7 +105,7 @@ class MovieDetailScreenState extends State<MovieDetailScreen> {
                               genresText,
                               style: const TextStyle(
                                 color: Colors.grey,
-                                fontSize: 17,
+                                fontSize: 15,
                               ),
                             ),
                           ],
@@ -183,7 +183,7 @@ class MovieDetailScreenState extends State<MovieDetailScreen> {
                                 ],
                               );
                       }
-                      return const Text("Something Went wrong");
+                      return const Text("No Related Movies Found");
                     },
                   ),
                 ],
