@@ -3,11 +3,11 @@ import 'package:netflix_clone/common/utils.dart';
 import 'package:netflix_clone/models/movie_model.dart';
 import 'package:netflix_clone/screens/movie_detailed_screen.dart';
 
-class UpcomingMovieCard extends StatelessWidget {
+class MovieCard extends StatelessWidget {
   final Future<MovieModel> future;
 
   final String headlineText;
-  const UpcomingMovieCard({
+  const MovieCard({
     super.key,
     required this.future,
     required this.headlineText,
