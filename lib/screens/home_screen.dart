@@ -4,7 +4,7 @@ import 'package:netflix_clone/models/tv_series_model.dart';
 import 'package:netflix_clone/screens/search_screen.dart';
 import 'package:netflix_clone/services/api_services.dart';
 import 'package:netflix_clone/widgets/custom_carousel.dart';
-import 'package:netflix_clone/widgets/upcoming_movie_card.dart';
+import 'package:netflix_clone/widgets/movie_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
